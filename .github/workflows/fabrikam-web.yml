@@ -9,12 +9,14 @@ on:
   push:
     branches: [ main ]
     # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
     paths:
     - 'content-web/**'
     - '.github/workflows/fabrikam-web.yml'
+    # Publish `v1.2.3` tags as releases.
+    tags:
+    - v*  
+  # Run tests for any PRs.
   pull_request:
-    branches: [ main ]
 
 env:
   # Use docker.io for Docker Hub if empty
